@@ -7,13 +7,14 @@ const Fixtures = () => {
   
     const fetchData = () => {
       fetch("http://localhost:8080/pps")
+      // fetch("http://localhost:8080/Table")
       
 
         .then(response => {return response.json()})
         .then(data => {setmatch(data)})
 
+
     }
-  
     useEffect(() => {
       fetchData()
     }, [])
@@ -23,11 +24,14 @@ const Fixtures = () => {
       <ul>
         {match.map((game) => {
           console.log(game)
+          
           return(
           
           
           <li key={game.match_id} > 
-            <p>Match No: {game.match_id }: homeTeamID = {game.homeTeamID} homeTeam Score = {game.homeTeam_Score} awayTeamID =  {game.awayTeamID} awayTeam Score {game.awayTeam_Score} </p>             
+            <p>Match No: {game.match_id }:</p>
+            <p> homeTeamID = {game.homeTeamID} homeTeam Score = {game.homeTeam_Score}</p>
+            <p> awayTeamID =  {game.awayTeamID} awayTeam Score ={game.awayTeam_Score} </p>             
           </li>
         )})}
       </ul>
